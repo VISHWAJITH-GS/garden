@@ -1,8 +1,8 @@
 import plantsData from '@/data/plants.json'
 import { Plant } from '@/types/plant'
-import Header from '@/components/Header'
-import PlantCard from '@/components/PlantCard'
-import BottomNav from '@/components/BottomNav'
+import Header from '@/components/layout/Header'
+import PlantCard from '@/components/plants/PlantCard'
+import BottomNav from '@/components/layout/BottomNav'
 import { Search } from 'lucide-react'
 
 export default function HomePage() {
@@ -14,7 +14,7 @@ export default function HomePage() {
     <>
       <Header />
 
-      <main className="max-w-md mx-auto pb-24">
+      <main className="mx-auto max-w-md pb-24">
         <div className="bg-[var(--color-maroon)] px-5 pt-7 pb-8">
           <span className="inline-block bg-[var(--color-gold)] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
             {plants.length} Plants

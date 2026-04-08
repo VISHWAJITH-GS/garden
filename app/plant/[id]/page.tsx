@@ -1,116 +1,20 @@
-'use client'
-
-import { useMemo, useState } from 'react'
-import { notFound, useParams } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Tag, Heart, ArrowLeft, Leaf } from 'lucide-react'
+import { notFound } from 'next/navigation'
 import plantsData from '@/data/plants.json'
-import { Plant } from '@/types/plant'
-import Header from '@/components/Header'
-import MedicinalPill from '@/components/MedicinalPill'
-import BottomNav from '@/components/BottomNav'
+import type { Plant } from '@/types/plant'
+import PlantProfileClient from '@/components/plants/PlantProfileClient'
 
-export default function PlantProfile() {
-	const [lang, setLang] = useState<'en' | 'ta'>('ta')
-	const [imgError, setImgError] = useState(false)
-	const params = useParams<{ id: string }>()
+interface PlantProfilePageProps {
+	params: {
+		id: string
+	}
+}
 
-	const plant = useMemo(
-		() => (plantsData as Plant[]).find((p) => p.id === params.id),
-		[params.id],
-	)
+export default function PlantProfilePage({ params }: PlantProfilePageProps) {
+	const plant = (plantsData as Plant[]).find((entry) => entry.id === params.id)
 
-	if (!plant) notFound()
+	if (!plant) {
+		notFound()
+	}
 
-	return (
-		<>
-			<Header
-				showLangToggle
-				lang={lang}
-				onToggleLang={() => setLang((l) => (l === 'en' ? 'ta' : 'en'))}
-			/>
-
-			<main className="max-w-md mx-auto pb-28 bg-[var(--color-canvas)]">
-				<div className="w-full h-72 bg-[var(--color-maroon-light)] relative flex items-center justify-center overflow-hidden">
-					{!imgError ? (
-						<Image
-							src={`/images/plants/${plant.id}.jpg`}
-							alt={plant.englishName}
-							fill
-							className="object-cover"
-							onError={() => setImgError(true)}
-						/>
-					) : (
-						<div className="flex flex-col items-center gap-3">
-							<Leaf size={56} className="text-[var(--color-maroon)] opacity-20" />
-							<p className="text-sm text-[var(--color-text-secondary)]">Photo coming soon</p>
-						</div>
-					)}
-				</div>
-
-				<div className="mx-4 -mt-6 relative z-10">
-					<div className="bg-[var(--color-surface)] rounded-2xl shadow-md border border-[var(--color-border)] p-5 animate-fade-up">
-						<span className="inline-block bg-[var(--color-maroon-light)] text-[var(--color-maroon)] text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-[var(--color-maroon-border)] mb-3">
-							{plant.category}
-						</span>
-
-						{lang === 'ta' ? (
-							<>
-								<h1 className="tamil-text text-4xl font-bold text-[var(--color-text-primary)] leading-tight">
-									{plant.tamilName}
-								</h1>
-								<p className="text-base text-[var(--color-text-secondary)] font-semibold mt-1">
-									{plant.englishName}
-								</p>
-							</>
-						) : (
-							<>
-								<h1 className="font-display text-3xl text-[var(--color-text-primary)] leading-tight">
-									{plant.englishName}
-								</h1>
-								<p className="tamil-text text-xl text-[var(--color-text-secondary)] mt-1">
-									{plant.tamilName}
-								</p>
-							</>
-						)}
-
-						<div className="flex items-center gap-1.5 mt-3">
-							<Tag size={13} className="text-gray-400 flex-shrink-0" />
-							<p className="text-sm italic text-[var(--color-text-botanical)]">{plant.botanicalName}</p>
-						</div>
-					</div>
-				</div>
-
-				<div className="mx-4 mt-3 animate-fade-up stagger-2">
-					<div className="bg-[var(--color-surface)] rounded-2xl shadow-sm border border-[var(--color-border)] p-5">
-						<div className="flex items-center gap-2 mb-4">
-							<Heart size={18} className="text-[var(--color-maroon)]" />
-							<h2 className="font-bold text-[var(--color-text-primary)] text-sm uppercase tracking-wide">
-								Medicinal Properties
-							</h2>
-						</div>
-
-						<div className="flex flex-wrap gap-2">
-							{plant.medicinalUses.map((use, index) => (
-								<MedicinalPill key={index} text={use} />
-							))}
-						</div>
-					</div>
-				</div>
-
-				<div className="mx-4 mt-4 animate-fade-up stagger-3">
-					<Link
-						href="/"
-						className="flex items-center justify-center gap-2 w-full border-2 border-[var(--color-maroon)] text-[var(--color-maroon)] font-semibold text-sm py-3 rounded-xl hover:bg-[var(--color-maroon-light)] transition-colors"
-					>
-						<ArrowLeft size={16} />
-						Back to Garden
-					</Link>
-				</div>
-			</main>
-
-			<BottomNav />
-		</>
-	)
+	return <PlantProfileClient plant={plant} />
 }

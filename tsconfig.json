@@ -23,6 +23,15 @@
       }
     ],
     "paths": {
+      "@/lib/*": [
+        "./app/shared/lib/*"
+      ],
+      "@/hooks/*": [
+        "./app/shared/hooks/*"
+      ],
+      "@/types/*": [
+        "./app/shared/types/*"
+      ],
       "@/*": [
         "./*"
       ]
