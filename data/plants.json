@@ -1,0 +1,162 @@
+[
+	{
+		"id": "omavalli-001",
+		"tamilName": "ஓமவல்லி",
+		"englishName": "Mexican Mint",
+		"botanicalName": "Plectranthus amboinicus",
+		"medicinalUses": ["Treat Respiratory Ailments", "Digestive Issues"],
+		"category": "Herb"
+	},
+	{
+		"id": "tulasi-002",
+		"tamilName": "துளசி",
+		"englishName": "Holy Basil",
+		"botanicalName": "Ocimum sanctum",
+		"medicinalUses": ["Treat Respiratory Ailments", "Coughs & Colds", "Asthma Relief"],
+		"category": "Herb"
+	},
+	{
+		"id": "vicks-tulasi-003",
+		"tamilName": "விக்ஸ் துளசி",
+		"englishName": "Vicks Basil",
+		"botanicalName": "Ocimum tenuiflorum",
+		"medicinalUses": ["Treat Respiratory Issues", "Headaches", "Oral Care"],
+		"category": "Herb"
+	},
+	{
+		"id": "katralai-004",
+		"tamilName": "கற்றாழை",
+		"englishName": "Aloe Vera",
+		"botanicalName": "Aloe barbadensis Miller",
+		"medicinalUses": ["Soothing Skin (Sunburns, Acne)", "Moisturizing Hair and Scalp"],
+		"category": "Succulent"
+	},
+	{
+		"id": "sitharathai-005",
+		"tamilName": "சித்தரத்தை",
+		"englishName": "Lesser Galangal",
+		"botanicalName": "Alpinia officinarum",
+		"medicinalUses": ["Aid Digestion", "Reduce Inflammation", "Treat Respiratory Issues"],
+		"category": "Root Herb"
+	},
+	{
+		"id": "pirandai-006",
+		"tamilName": "பிரண்டை",
+		"englishName": "Veldt Grape",
+		"botanicalName": "Cissus quadrangularis",
+		"medicinalUses": ["Bone Healing (Fractures)", "Reducing Joint Pain", "Improving Digestive Health"],
+		"category": "Climber"
+	},
+	{
+		"id": "iranakalli-007",
+		"tamilName": "இரணக்கள்ளி",
+		"englishName": "Air Plant",
+		"botanicalName": "Kalanchoe pinnata",
+		"medicinalUses": ["Treat Kidney Stones", "Hypertension", "Infections"],
+		"category": "Succulent"
+	},
+	{
+		"id": "manjal-008",
+		"tamilName": "மஞ்சள்",
+		"englishName": "Turmeric",
+		"botanicalName": "Curcuma longa",
+		"medicinalUses": ["Medicine for Arthritis", "Digestive Disorders", "Wound Healing"],
+		"category": "Root Herb"
+	},
+	{
+		"id": "thanneervittan-009",
+		"tamilName": "தண்ணீர்விட்டான்கிழங்கு",
+		"englishName": "Shatavari",
+		"botanicalName": "Asparagus racemosus",
+		"medicinalUses": ["Support Hormonal Balance", "Increase Lactation"],
+		"category": "Root Herb"
+	},
+	{
+		"id": "kariveppilai-010",
+		"tamilName": "கறிவேப்பிலை",
+		"englishName": "Curry Leaf",
+		"botanicalName": "Murraya koenigii",
+		"medicinalUses": ["Aid Digestion", "Manage Diabetes", "Boost Hair Health"],
+		"category": "Tree"
+	},
+	{
+		"id": "thiruneetrupachilai-011",
+		"tamilName": "திருநீற்றுப்பச்சிலை",
+		"englishName": "Sweet Basil",
+		"botanicalName": "Ocimum basilicum",
+		"medicinalUses": ["Promote Heart Health", "Manage Blood Sugar", "Fight Bacterial Infections"],
+		"category": "Herb"
+	},
+	{
+		"id": "aadathodai-012",
+		"tamilName": "ஆடாதோடை",
+		"englishName": "Malabar Nut",
+		"botanicalName": "Justicia adhatoda",
+		"medicinalUses": ["Treat Cough & Asthma", "Bronchitis", "Tuberculosis"],
+		"category": "Shrub"
+	},
+	{
+		"id": "insulin-sedi-013",
+		"tamilName": "இன்சுலின் செடி",
+		"englishName": "Insulin Plant",
+		"botanicalName": "Chamaecostus cuspidatus",
+		"medicinalUses": ["Manage Diabetes", "Acts as Antioxidant", "Antimicrobial Properties"],
+		"category": "Herb"
+	},
+	{
+		"id": "arainelli-014",
+		"tamilName": "அரைநெல்லி",
+		"englishName": "Star Gooseberry",
+		"botanicalName": "Phyllanthus acidus",
+		"medicinalUses": ["Boosting Immunity", "Improving Digestion", "Treating Skin Issues"],
+		"category": "Tree"
+	},
+	{
+		"id": "avuri-015",
+		"tamilName": "அவுரி",
+		"englishName": "True Indigo",
+		"botanicalName": "Indigofera tinctoria",
+		"medicinalUses": ["Hair Care", "Medicine for Skin & Liver Conditions", "Nitrogen-Fixing Crop"],
+		"category": "Shrub"
+	},
+	{
+		"id": "peenarisangu-016",
+		"tamilName": "பீநாறிச்சங்கு",
+		"englishName": "Wild Jasmine",
+		"botanicalName": "Clerodendrum inerme",
+		"medicinalUses": ["Anti-Inflammatory", "Antimicrobial", "Treat Skin Diseases"],
+		"category": "Shrub"
+	},
+	{
+		"id": "theyilaimaram-017",
+		"tamilName": "தேயிலைமரம்",
+		"englishName": "Tea Tree",
+		"botanicalName": "Melaleuca alternifolia",
+		"medicinalUses": ["Treat Acne & Dandruff", "Fungal Nail Infections", "Soothe Bug Bites"],
+		"category": "Tree"
+	},
+	{
+		"id": "ilaipirandai-018",
+		"tamilName": "இலைபிரண்டை",
+		"englishName": "Roundleaf Cissus",
+		"botanicalName": "Cissus rotundifolia",
+		"medicinalUses": ["Treating Diabetes", "Burns", "Gastrointestinal Issues"],
+		"category": "Climber"
+	},
+	{
+		"id": "nilavembu-019",
+		"tamilName": "நிலவேம்பு",
+		"englishName": "King of Bitters",
+		"botanicalName": "Andrographis paniculata",
+		"medicinalUses": ["Treat Upper Respiratory Infections", "Common Cold & Influenza", "Immune-Boosting"],
+		"category": "Herb"
+	},
+	{
+		"id": "mathulai-020",
+		"tamilName": "மாதுளை",
+		"englishName": "Pomegranate",
+		"botanicalName": "Punica granatum",
+		"medicinalUses": ["Reduced Inflammation", "Drought-Tolerant Landscaping"],
+		"category": "Tree"
+	}
+]
