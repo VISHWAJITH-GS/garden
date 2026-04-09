@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   title: 'TCE Garden',
   description:
     'Explore the medicinal plant garden of Thiagarajar College of Engineering, Madurai.',
+  icons: {
+    icon: '/images/favicon.ico',
+  },
 }
 
 export const viewport: Viewport = {
