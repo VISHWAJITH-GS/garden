@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Leaf } from 'lucide-react'
 import { Plant } from '@/types/plant'
+import { getPlantImagePath } from '@/lib/plant-image'
 
 interface PlantCardProps {
 	plant: Plant
@@ -16,7 +17,7 @@ export default function PlantCard({ plant, animationClass = '' }: PlantCardProps
 			<div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-4 flex items-center gap-4 shadow-sm active:scale-95 transition-transform duration-150">
 				<div className="relative w-20 h-20 rounded-xl bg-[var(--color-maroon-light)] flex-shrink-0 flex items-center justify-center overflow-hidden">
 					<Image
-						src={`/images/plants/${plant.id}.jpg`}
+						src={getPlantImagePath(plant.englishName)}
 						alt={plant.englishName}
 						width={80}
 						height={80}

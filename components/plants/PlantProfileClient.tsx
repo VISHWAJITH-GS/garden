@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Heart, Leaf, Tag } from 'lucide-react'
@@ -9,6 +9,7 @@ import Header from '@/components/layout/Header'
 import MedicinalPill from '@/components/plants/MedicinalPill'
 import BottomNav from '@/components/layout/BottomNav'
 import PageShell from '@/components/layout/PageShell'
+import { getPlantImagePath } from '@/lib/plant-image'
 
 interface PlantProfileClientProps {
 	plant: Plant
@@ -17,6 +18,10 @@ interface PlantProfileClientProps {
 export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 	const [lang, setLang] = useState<'en' | 'ta'>('ta')
 	const [imgError, setImgError] = useState(false)
+
+	useEffect(() => {
+		setImgError(false)
+	}, [plant.englishName])
 
 	return (
 		<>
@@ -30,7 +35,8 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 				<div className="w-full h-72 bg-[var(--color-maroon-light)] relative flex items-center justify-center overflow-hidden">
 					{!imgError ? (
 						<Image
-							src={`/images/plants/${plant.id}.jpg`}
+							key={plant.englishName}
+							src={getPlantImagePath(plant.englishName)}
 							alt={plant.englishName}
 							fill
 							className="object-cover"
