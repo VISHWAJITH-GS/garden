@@ -36,8 +36,8 @@ export default function AboutPage() {
     <>
       <Header />
 
-      <main className="mx-auto max-w-md pb-24">
-        <div className="bg-[var(--color-maroon)] px-5 pt-7 pb-8">
+      <main className="mx-auto max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-7xl pb-24 md:pb-12">
+        <div className="bg-[var(--color-maroon)] px-5 md:px-10 lg:px-16 pt-7 md:pt-14 pb-8 md:pb-12 md:rounded-b-[2.5rem]">
           <Badge className="bg-[var(--color-gold)] text-white hover:bg-[var(--color-gold)] hover:opacity-90 font-bold uppercase tracking-widest px-3 py-1 mb-3">
             About TCE Garden
           </Badge>
@@ -47,8 +47,8 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="px-4 pt-5 grid gap-3">
-          <Card className="rounded-2xl border-[var(--color-border)] shadow-sm">
+        <div className="px-4 md:px-10 lg:px-16 pt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card className="rounded-2xl border-[var(--color-border)] shadow-sm md:col-span-2 lg:col-span-3">
             <CardContent className="p-5">
               <div className="flex items-center gap-2 mb-2">
                 <Sprout size={18} className="text-[var(--color-maroon)]" />
@@ -79,7 +79,7 @@ export default function AboutPage() {
             )
           })}
 
-          <Card className="rounded-2xl border-[var(--color-border)] shadow-sm">
+          <Card className="rounded-2xl border-[var(--color-border)] shadow-sm md:col-span-2 lg:col-span-3">
             <CardContent className="p-5">
               <h2 className="font-semibold text-[var(--color-text-primary)] mb-2">How to update it</h2>
               <p className="text-sm text-[var(--color-text-secondary)]">
