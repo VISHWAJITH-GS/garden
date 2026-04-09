@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ta" className={`${dmSerif.variable} ${dmSans.variable} ${tiroTamil.variable}`}>
+    <html lang="ta" suppressHydrationWarning className={`${dmSerif.variable} ${dmSans.variable} ${tiroTamil.variable}`}>
       <body className="bg-[var(--color-canvas)] text-[var(--color-text-primary)] antialiased">
         {children}
       </body>

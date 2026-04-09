@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Leaf } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 interface HeaderProps {
 	showLangToggle?: boolean
@@ -20,12 +21,13 @@ export default function Header({ showLangToggle = false, lang = 'en', onToggleLa
 			</Link>
 
 			{showLangToggle ? (
-				<button
+				<Button
+					variant="outline"
 					onClick={onToggleLang}
-					className="text-xs font-semibold text-[var(--color-maroon)] bg-[var(--color-maroon-light)] px-3 py-1.5 rounded-full border border-[var(--color-maroon-border)] transition-colors hover:bg-[var(--color-maroon-border)]"
+					className="text-xs font-semibold text-[var(--color-maroon)] bg-[var(--color-maroon-light)] px-3 py-1.5 h-auto rounded-full border-[var(--color-maroon-border)] transition-colors hover:bg-[var(--color-maroon-border)] hover:text-[var(--color-maroon)]"
 				>
 					{lang === 'en' ? 'TA | EN' : 'EN | TA'}
-				</button>
+				</Button>
 			) : (
 				<Leaf size={20} className="text-[var(--color-maroon)]" />
 			)}

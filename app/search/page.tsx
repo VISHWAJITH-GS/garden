@@ -7,6 +7,9 @@ import BottomNav from '@/components/layout/BottomNav'
 import PlantCard from '@/components/plants/PlantCard'
 import plantsData from '@/data/plants.json'
 import { Plant } from '@/types/plant'
+import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
+import { Card, CardContent } from '@/components/ui/card'
 
 export default function SearchPage() {
   const [query, setQuery] = useState('')
@@ -39,9 +42,9 @@ export default function SearchPage() {
 
       <main className="mx-auto max-w-md pb-24">
         <div className="bg-[var(--color-maroon)] px-5 pt-7 pb-7">
-          <span className="inline-block bg-[var(--color-gold)] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+          <Badge className="bg-[var(--color-gold)] text-white hover:bg-[var(--color-gold)] hover:opacity-90 font-bold uppercase tracking-widest px-3 py-1 mb-3">
             Search Plants
-          </span>
+          </Badge>
           <h1 className="font-display text-3xl text-white leading-tight">Find a plant fast</h1>
           <p className="text-white/70 text-sm mt-1.5 font-body">
             Search by Tamil name, English name, botanical name, category, or medicinal use.
@@ -49,12 +52,12 @@ export default function SearchPage() {
 
           <div className="mt-5 bg-white rounded-xl flex items-center px-4 py-3 gap-3 shadow-md">
             <Search size={16} className="text-gray-400 flex-shrink-0" />
-            <input
+            <Input
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search plants..."
-              className="w-full text-sm text-[var(--color-text-primary)] placeholder-gray-400 outline-none font-body bg-transparent"
+              className="w-full text-sm placeholder-gray-400 outline-none font-body bg-transparent border-0 focus-visible:ring-0 shadow-none px-0 h-auto"
             />
           </div>
         </div>
@@ -78,13 +81,15 @@ export default function SearchPage() {
               />
             ))
           ) : (
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8 text-center shadow-sm">
-              <Leaf size={32} className="text-[var(--color-maroon)] mx-auto mb-3 opacity-30" />
-              <p className="font-semibold text-[var(--color-text-primary)]">No matching plants</p>
-              <p className="text-sm text-[var(--color-text-secondary)] mt-1">
-                Try a different name, category, or medicinal use.
-              </p>
-            </div>
+            <Card className="rounded-2xl shadow-sm border-[var(--color-border)]">
+              <CardContent className="p-8 text-center flex flex-col items-center">
+                <Leaf size={32} className="text-[var(--color-maroon)] mb-3 opacity-30" />
+                <p className="font-semibold text-[var(--color-text-primary)]">No matching plants</p>
+                <p className="text-sm text-[var(--color-text-secondary)] mt-1">
+                  Try a different name, category, or medicinal use.
+                </p>
+              </CardContent>
+            </Card>
           )}
         </div>
       </main>

@@ -4,6 +4,8 @@ import Header from '@/components/layout/Header'
 import PlantCard from '@/components/plants/PlantCard'
 import BottomNav from '@/components/layout/BottomNav'
 import { Search } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
 
 export default function HomePage() {
   const plants: Plant[] = plantsData as Plant[]
@@ -16,9 +18,9 @@ export default function HomePage() {
 
       <main className="mx-auto max-w-md pb-24">
         <div className="bg-[var(--color-maroon)] px-5 pt-7 pb-8">
-          <span className="inline-block bg-[var(--color-gold)] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+          <Badge className="bg-[var(--color-gold)] text-white hover:bg-[var(--color-gold)] hover:opacity-90 font-bold uppercase tracking-widest px-3 py-1 mb-3">
             {plants.length} Plants
-          </span>
+          </Badge>
           <h1 className="font-display text-3xl text-white leading-tight">TCE Garden</h1>
           <p className="text-white/70 text-sm mt-1.5 font-body">
             Thiagarajar College of Engineering
@@ -28,10 +30,10 @@ export default function HomePage() {
 
           <div className="mt-5 bg-white rounded-xl flex items-center px-4 py-3 gap-3 shadow-md">
             <Search size={16} className="text-gray-400 flex-shrink-0" />
-            <input
+            <Input
               type="text"
               placeholder="Search plants..."
-              className="w-full text-sm text-[var(--color-text-primary)] placeholder-gray-400 outline-none font-body"
+              className="w-full text-sm placeholder-gray-400 outline-none font-body border-0 focus-visible:ring-0 shadow-none px-0 h-auto"
               readOnly
             />
           </div>
