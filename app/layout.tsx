@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ta" suppressHydrationWarning className={`${dmSerif.variable} ${dmSans.variable} ${tiroTamil.variable}`}>
-      <body className="bg-[var(--color-canvas)] text-[var(--color-text-primary)] antialiased min-h-screen">
+      <body suppressHydrationWarning className="bg-[var(--color-canvas)] text-[var(--color-text-primary)] antialiased min-h-screen">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
