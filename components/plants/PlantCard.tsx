@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Leaf } from 'lucide-react'
+import { Leaf, ChevronRight } from 'lucide-react'
 import { Plant } from '@/types/plant'
 import { getPlantImagePath } from '@/lib/plant-image'
 
@@ -44,9 +44,7 @@ export default function PlantCard({ plant, animationClass = '' }: PlantCardProps
 					</span>
 				</div>
 
-				<svg className="w-4 h-4 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-				</svg>
+				<ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" strokeWidth={2} />
 			</div>
 		</Link>
 	)
