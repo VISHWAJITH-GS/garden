@@ -110,10 +110,12 @@ export default function HomePage() {
 
         <div id="about" className="scroll-mt-28 md:scroll-mt-24">
           <FadeIn delay={0.08} className="px-4 sm:px-5 md:px-10 lg:px-16 pt-6 md:pt-10">
+            <div className="mb-4 max-w-3xl">
+              <h2 className="heading-section text-2xl md:text-3xl text-[var(--color-maroon)]">About TCE YRC</h2>
+              <p className="heading-section text-base md:text-lg text-[var(--color-text-primary)] mt-2">Building a Service-First Student Movement</p>
+            </div>
             <section className="rounded-3xl border border-[var(--color-border)] bg-gradient-to-b from-[#fffdfd] to-[#faf7f8] p-5 md:p-8">
               <div className="max-w-3xl">
-                <Badge className="bg-[var(--color-maroon-light)] text-[var(--color-maroon)] hover:bg-[var(--color-maroon-light)] mb-3">About TCE YRC</Badge>
-                <h2 className="heading-section text-2xl md:text-3xl text-[var(--color-maroon)]">Building a Service-First Student Movement</h2>
                 <p className="copy-muted text-sm md:text-base mt-2">
                   Vision, mission, core principles, IRCS context, and historical foundation of the Youth Red Cross at TCE.
                 </p>
