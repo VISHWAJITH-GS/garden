@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { User, ChevronDown, Leaf } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { SidebarTrigger } from '@/components/ui/sidebar'
 
 interface HeaderProps {
 	showLangToggle?: boolean
@@ -15,7 +16,9 @@ export default function Header({ showLangToggle = false, lang = 'en', onToggleLa
 	return (
 		<header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200">
 			<div className="flex justify-between items-center px-4 py-3 h-16 md:h-20 w-full mx-auto max-w-7xl">
-				<Link href="/" className="flex items-center gap-2 active:scale-95 transition-transform duration-150">
+				<div className="flex items-center gap-2">
+					<SidebarTrigger className="text-gray-500 hover:text-[#cc0000] min-h-10 min-w-10" />
+					<Link href="/" className="flex items-center gap-2 active:scale-95 transition-transform duration-150">
 					<div className="relative h-10 md:h-12 w-[180px] sm:w-[240px] md:w-[320px]">
 						<Image src="/images/tce-banner.png" alt="TCE Banner" fill className="object-contain object-left" priority />
 					</div>
@@ -24,6 +27,7 @@ export default function Header({ showLangToggle = false, lang = 'en', onToggleLa
 						TCE GARDEN
 					</span>
 				</Link>
+				</div>
 
 				{showLangToggle ? (
 					<button

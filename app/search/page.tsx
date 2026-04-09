@@ -3,7 +3,6 @@
 import { useMemo, useState } from 'react'
 import { Search, Leaf } from 'lucide-react'
 import Header from '@/components/layout/Header'
-import BottomNav from '@/components/layout/BottomNav'
 import PlantCard from '@/components/plants/PlantCard'
 import plantsData from '@/data/plants.json'
 import { Plant } from '@/types/plant'
@@ -94,7 +93,6 @@ export default function SearchPage() {
         </div>
       </main>
 
-      <BottomNav />
     </>
   )
 }

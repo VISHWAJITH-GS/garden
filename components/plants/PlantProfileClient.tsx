@@ -7,7 +7,6 @@ import { ArrowLeft, Heart, Leaf, Tag } from 'lucide-react'
 import type { Plant } from '@/types/plant'
 import Header from '@/components/layout/Header'
 import MedicinalPill from '@/components/plants/MedicinalPill'
-import BottomNav from '@/components/layout/BottomNav'
 import PageShell from '@/components/layout/PageShell'
 import { getPlantImagePath } from '@/lib/plant-image'
 import { Card, CardContent } from '@/components/ui/card'
@@ -120,8 +119,6 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 				</div>
 				</div>
 			</PageShell>
-
-			<BottomNav />
 		</>
 	)
 }

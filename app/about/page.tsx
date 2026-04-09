@@ -1,6 +1,5 @@
 import { BookOpen, Leaf, MapPin, QrCode, Sprout } from 'lucide-react'
 import Header from '@/components/layout/Header'
-import BottomNav from '@/components/layout/BottomNav'
 import plantsData from '@/data/plants.json'
 import { Plant } from '@/types/plant'
 import { Badge } from '@/components/ui/badge'
@@ -91,7 +90,6 @@ export default function AboutPage() {
         </div>
       </main>
 
-      <BottomNav />
     </>
   )
 }

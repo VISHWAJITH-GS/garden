@@ -2,7 +2,6 @@ import plantsData from '@/data/plants.json'
 import { Plant } from '@/types/plant'
 import Header from '@/components/layout/Header'
 import PlantCard from '@/components/plants/PlantCard'
-import BottomNav from '@/components/layout/BottomNav'
 import { Search } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
@@ -56,7 +55,6 @@ export default function HomePage() {
         </div>
       </main>
 
-      <BottomNav />
     </>
   )
 }
