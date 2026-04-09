@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import type { Viewport } from 'next'
 import { DM_Serif_Display, DM_Sans, Tiro_Tamil } from 'next/font/google'
 import './globals.css'
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar'
-import { AppSidebar } from '@/components/layout/AppSidebar'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const dmSerif = DM_Serif_Display({
   weight: '400',
@@ -43,12 +42,16 @@ export default function RootLayout({
   return (
     <html lang="ta" suppressHydrationWarning className={`${dmSerif.variable} ${dmSans.variable} ${tiroTamil.variable}`}>
       <body className="bg-[var(--color-canvas)] text-[var(--color-text-primary)] antialiased min-h-screen">
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarInset className="bg-transparent flex-1 w-full overflow-hidden shrink-1">
-            {children}
-          </SidebarInset>
-        </SidebarProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="bg-transparent w-full overflow-visible relative min-h-screen">
+            <div className="relative z-10">{children}</div>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   )

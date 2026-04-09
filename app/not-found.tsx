@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { Leaf, AlertCircle } from 'lucide-react'
-import Header from '@/components/layout/Header'
+import Navbar from '@/components/layout/Navbar'
 import PageShell from '@/components/layout/PageShell'
 
 export default function NotFound() {
 	return (
 		<>
-			<Header />
+			<Navbar />
 			<PageShell className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
 				<div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl shadow-sm p-8 w-full">
 					<AlertCircle size={40} className="text-[var(--color-maroon)] mx-auto mb-4 opacity-60" />
