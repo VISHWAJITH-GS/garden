@@ -220,6 +220,7 @@ export default function HomePage() {
 
                         <div>
                           <p className="text-sm md:text-base font-semibold text-[var(--color-text-primary)]">Dr. P. Priyadharshini</p>
+                          <p className="copy-muted text-sm md:text-base mt-1">Assistant Professor, English</p>
                           <a
                             href="tel:9487648432"
                             className="mt-3 inline-flex items-center gap-2 rounded-lg border border-[var(--color-maroon-border)] bg-white px-3 py-2 text-sm font-medium text-[var(--color-maroon)] transition-colors hover:bg-[var(--color-maroon-light)]"
