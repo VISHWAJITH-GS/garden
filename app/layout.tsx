@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   title: 'TCE Garden',
   description:
     'Explore the medicinal plant garden of Thiagarajar College of Engineering, Madurai.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   icons: {
     icon: '/images/favicon.ico',
   },

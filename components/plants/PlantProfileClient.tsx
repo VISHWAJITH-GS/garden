@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Heart, Leaf, MapPin, Tag } from 'lucide-react'
@@ -20,11 +20,8 @@ interface PlantProfileClientProps {
 
 export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 	const [lang, setLang] = useState<'en' | 'ta'>('ta')
-	const [imgError, setImgError] = useState(false)
-
-	useEffect(() => {
-		setImgError(false)
-	}, [plant.englishName])
+	const [failedImages, setFailedImages] = useState<Record<string, true>>({})
+	const imgError = Boolean(failedImages[plant.englishName])
 
 	return (
 		<>
@@ -49,7 +46,12 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 							alt={plant.englishName}
 							fill
 							className="object-cover"
-							onError={() => setImgError(true)}
+							onError={() =>
+								setFailedImages((current) => {
+									if (current[plant.englishName]) return current
+									return { ...current, [plant.englishName]: true }
+								})
+							}
 						/>
 					) : (
 						<div className="flex flex-col items-center gap-3">
@@ -60,6 +62,15 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 				</motion.div>
 
 				<div className="flex flex-col flex-1 w-full relative z-10 md:mt-4">
+				<motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.03, duration: 0.35 }} className="mx-4 mt-3 md:mx-0 md:mt-0 md:mb-3">
+					<Button asChild variant="outline" className="border border-[var(--color-maroon)] bg-[var(--color-maroon)] text-white font-semibold text-sm h-10 px-3 rounded-xl hover:bg-[var(--color-maroon-dark)] hover:text-white transition-colors">
+						<Link href="/garden">
+							<ArrowLeft size={16} />
+							Back to Garden
+						</Link>
+					</Button>
+				</motion.div>
+
 				<motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05, duration: 0.42 }} className="mx-4 -mt-6 md:m-0">
 					<Card className="rounded-2xl shadow-md border-[var(--color-border)] md:border-transparent md:shadow-none md:bg-transparent">
 						<CardContent className="p-5 md:p-0">
@@ -134,14 +145,6 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 					</Card>
 				</motion.div>
 
-				<motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.42 }} className="mx-4 mt-4 md:mx-0 md:mt-8">
-					<Button asChild variant="outline" className="w-full border-2 border-[var(--color-maroon)] text-[var(--color-maroon)] font-semibold text-sm h-12 rounded-xl hover:bg-[var(--color-maroon-light)] hover:text-[var(--color-maroon)] dark:hover:text-[var(--color-maroon)] transition-colors">
-						<Link href="/garden">
-							<ArrowLeft size={16} />
-							Back to Garden
-						</Link>
-					</Button>
-				</motion.div>
 				</div>
 				</div>
 			</PageShell>
