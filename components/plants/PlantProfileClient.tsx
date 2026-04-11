@@ -32,7 +32,7 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 			/>
 
 			<PageShell className="pb-28 md:pb-12 bg-[var(--color-canvas)] md:bg-transparent">
-				<div className="flex flex-col md:flex-row md:items-start md:gap-8 md:p-8">
+				<div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-8 md:p-8">
 				<motion.div
 					initial={{ opacity: 0, y: 16 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -61,9 +61,9 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 					)}
 				</motion.div>
 
-				<div className="flex flex-col flex-1 w-full relative z-10 md:mt-4">
-				<motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.03, duration: 0.35 }} className="mx-4 mt-3 md:mx-0 md:mt-0 md:mb-3">
-					<Button asChild variant="outline" className="border border-[var(--color-maroon)] bg-[var(--color-maroon)] text-white font-semibold text-sm h-10 px-3 rounded-xl hover:bg-[var(--color-maroon-dark)] hover:text-white transition-colors">
+				<div className="flex flex-col flex-1 w-full md:mt-4">
+				<motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.03, duration: 0.35 }} className="mx-4 mt-1 mb-3 md:mx-0 md:mt-0 md:mb-3">
+					<Button asChild variant="outline" className="border border-[var(--color-maroon)] bg-[var(--color-maroon)] text-white font-semibold text-sm h-11 px-5 rounded-xl hover:bg-[var(--color-maroon-dark)] hover:text-white transition-colors">
 						<Link href="/garden">
 							<ArrowLeft size={16} />
 							Back to Garden
@@ -71,7 +71,7 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 					</Button>
 				</motion.div>
 
-				<motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05, duration: 0.42 }} className="mx-4 -mt-6 md:m-0">
+				<motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05, duration: 0.42 }} className="mx-4 mt-0 md:m-0">
 					<Card className="rounded-2xl shadow-md border-[var(--color-border)] md:border-transparent md:shadow-none md:bg-transparent">
 						<CardContent className="p-5 md:p-0">
 						<Badge className="bg-[var(--color-maroon-light)] text-[var(--color-maroon)] hover:bg-[var(--color-maroon-light)] hover:opacity-90 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-[var(--color-maroon-border)] mb-3 inline-flex">
