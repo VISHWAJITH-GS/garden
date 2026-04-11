@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, Heart, Leaf, MapPin, Tag } from 'lucide-react'
+import { ArrowLeft, Globe, Heart, Leaf, MapPin, Tag } from 'lucide-react'
 import { motion } from 'framer-motion'
 import type { Plant } from '@/types/plant'
 import Navbar from '@/components/layout/Navbar'
@@ -13,6 +13,7 @@ import { getPlantImagePath } from '@/lib/plant-image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 
 interface PlantProfileClientProps {
 	plant: Plant
@@ -21,7 +22,15 @@ interface PlantProfileClientProps {
 export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 	const [lang, setLang] = useState<'en' | 'ta'>('ta')
 	const [failedImages, setFailedImages] = useState<Record<string, true>>({})
+	const [imagePreviewOpen, setImagePreviewOpen] = useState(false)
 	const imgError = Boolean(failedImages[plant.englishName])
+
+	const openImagePreview = () => {
+		if (imgError) return
+		if (typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches) {
+			setImagePreviewOpen(true)
+		}
+	}
 
 	return (
 		<>
@@ -37,7 +46,17 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 					initial={{ opacity: 0, y: 16 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-					className="w-full h-72 md:h-[500px] md:w-1/2 md:rounded-3xl bg-[var(--color-maroon-light)] relative flex items-center justify-center overflow-hidden flex-shrink-0 md:shadow-lg"
+					onClick={openImagePreview}
+					onKeyDown={(event) => {
+						if (event.key === 'Enter' || event.key === ' ') {
+							event.preventDefault()
+							openImagePreview()
+						}
+					}}
+					role="button"
+					tabIndex={imgError ? -1 : 0}
+					aria-label="Open plant image preview"
+					className="w-full h-72 md:h-[500px] md:w-1/2 md:rounded-3xl bg-[var(--color-maroon-light)] relative flex items-center justify-center overflow-hidden flex-shrink-0 md:shadow-lg cursor-zoom-in md:cursor-default"
 				>
 					{!imgError ? (
 						<Image
@@ -63,12 +82,24 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 
 				<div className="flex flex-col flex-1 w-full md:mt-4">
 				<motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.03, duration: 0.35 }} className="mx-4 mt-1 mb-3 md:mx-0 md:mt-0 md:mb-3">
-					<Button asChild variant="outline" className="border border-[var(--color-maroon)] bg-[var(--color-maroon)] text-white font-semibold text-sm h-11 px-5 rounded-xl hover:bg-[var(--color-maroon-dark)] hover:text-white transition-colors">
-						<Link href="/garden">
-							<ArrowLeft size={16} />
-							Back to Garden
-						</Link>
-					</Button>
+					<div className="flex items-center gap-2">
+						<Button asChild variant="outline" className="border border-[var(--color-maroon)] bg-[var(--color-maroon)] text-white font-semibold text-sm h-11 px-5 rounded-xl hover:bg-[var(--color-maroon-dark)] hover:text-white transition-colors">
+							<Link href="/garden">
+								<ArrowLeft size={16} />
+								Back to Garden
+							</Link>
+						</Button>
+
+						<Button
+							variant="outline"
+							onClick={() => setLang((current) => (current === 'en' ? 'ta' : 'en'))}
+							className="h-11 px-4 rounded-xl border-[var(--color-maroon-border)] bg-white text-[var(--color-maroon)] hover:bg-[var(--color-maroon-light)] md:hidden"
+							aria-label="Toggle language"
+						>
+							<Globe size={15} />
+							<span>{lang === 'en' ? 'English' : 'Tamil'}</span>
+						</Button>
+					</div>
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05, duration: 0.42 }} className="mx-4 mt-0 md:m-0">
@@ -147,6 +178,20 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 
 				</div>
 				</div>
+
+				<Dialog open={imagePreviewOpen} onOpenChange={setImagePreviewOpen}>
+					<DialogContent className="w-[280px] max-w-[88vw] !p-2 rounded-xl" showCloseButton>
+						<DialogTitle className="sr-only">Plant image preview</DialogTitle>
+						<div className="relative h-52 w-full overflow-hidden rounded-lg bg-white">
+							<Image
+								src={getPlantImagePath(plant.englishName)}
+								alt={plant.englishName}
+								fill
+								className="object-contain p-1"
+							/>
+						</div>
+					</DialogContent>
+				</Dialog>
 			</PageShell>
 		</>
 	)
