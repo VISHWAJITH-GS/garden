@@ -109,7 +109,7 @@ export default function Navbar({
 
 					<div className="flex w-full items-center md:gap-6">
 						<Link href="/" className="hidden md:block">
-							<Image src="/images/tce-banner.png" alt="TCE Logo" width={220} height={48} className="object-contain" priority />
+							<Image src="/images/tce-banner.png" alt="TCE Logo" width={300} height={64} className="h-12 lg:h-14 w-auto object-contain" priority />
 						</Link>
 
 						<div className="ml-auto flex items-center gap-2">
