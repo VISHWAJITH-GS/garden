@@ -203,7 +203,7 @@ export default function HomePage() {
                     <CardContent className="p-5 md:p-6">
                       <div className="flex items-center gap-2 mb-3">
                         <UserRound size={18} className="text-[var(--color-maroon)] transition-transform duration-300 group-hover:scale-110" />
-                        <h3 className="heading-section text-[var(--color-text-primary)] text-lg">YRC Coordinators</h3>
+                        <h3 className="heading-section text-[var(--color-text-primary)] text-lg">YRC Faculty Coordinators</h3>
                       </div>
                       <div className="space-y-4">
                         <div>
