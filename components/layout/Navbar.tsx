@@ -57,7 +57,7 @@ export default function Navbar({
 			>
 				<div className="flex h-16 w-full flex-col justify-center px-2 md:h-20 md:flex-row md:items-center md:justify-between md:px-2">
 					<div className="flex items-center justify-between md:hidden">
-						<Image src="/images/tce-banner.png" alt="TCE Logo" width={160} height={28} className="object-contain" priority />
+						<Image src="/images/tce-banner.png" alt="TCE Logo" width={190} height={34} className="h-9 w-auto object-contain" priority />
 						<Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
 							<SheetTrigger asChild>
 								<Button

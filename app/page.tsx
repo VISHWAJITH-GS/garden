@@ -1,7 +1,7 @@
 import Navbar from '@/components/layout/Navbar'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShieldCheck, HeartHandshake, Clock3, Flag, Phone, UserRound, ArrowRight, ExternalLink } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { FadeIn, HoverLift } from '@/components/ui/motion'
 
@@ -45,9 +45,16 @@ export default function HomePage() {
         <FadeIn>
           <section id="home" className="px-4 sm:px-5 md:px-10 lg:px-16 py-8 md:py-10 min-h-[calc(100svh-6rem)] md:min-h-[calc(100svh-5rem)] flex items-center scroll-mt-28 md:scroll-mt-24">
             <div className="mx-auto w-full max-w-5xl text-center p-1 sm:p-2 md:p-3">
-              <Badge className="bg-[var(--color-gold)] text-white hover:bg-[var(--color-gold)] hover:opacity-90 font-bold uppercase tracking-widest px-3 py-1 mb-4">
-                YRC - TCE
-              </Badge>
+              <div className="mb-4 flex justify-center">
+                <Image
+                  src="/images/YRC%20logo.jpeg"
+                  alt="YRC TCE Logo"
+                  width={160}
+                  height={160}
+                  className="h-20 w-auto rounded-md object-contain md:h-24"
+                  priority
+                />
+              </div>
 
               <h1 className="heading-hero text-4xl md:text-6xl text-[var(--color-maroon)]">
                 Youth Red Cross
