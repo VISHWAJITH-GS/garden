@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Leaf } from 'lucide-react'
@@ -16,6 +17,9 @@ interface PlantCardProps {
 }
 
 export default function PlantCard({ plant, animationClass = '' }: PlantCardProps) {
+	const [imageLoaded, setImageLoaded] = useState(false)
+	const [imageFailed, setImageFailed] = useState(false)
+
 	return (
 		<Link href={`/plant/${plant.id}`}>
 			<motion.div
@@ -29,17 +33,20 @@ export default function PlantCard({ plant, animationClass = '' }: PlantCardProps
 					<Card className="border-[var(--color-border)] rounded-2xl smooth-shadow bg-white/90 backdrop-blur-[2px] transition-all duration-250 group-hover:border-[var(--color-maroon-border)] group-hover:shadow-lg">
 						<CardContent className="p-4 flex items-center gap-4">
 							<div className="relative w-20 h-20 rounded-xl bg-[var(--color-maroon-light)] flex-shrink-0 flex items-center justify-center overflow-hidden">
-								<Image
-									src={getPlantImagePath(plant.englishName)}
-									alt={plant.englishName}
-									width={80}
-									height={80}
-									className="object-cover w-full h-full rounded-xl transition-transform duration-300 group-hover:scale-110"
-									onError={(event) => {
-										event.currentTarget.style.display = 'none'
-									}}
-								/>
-								<Leaf size={28} className="text-[var(--color-maroon)] opacity-40 absolute" />
+								{!imageFailed && (
+									<Image
+										src={getPlantImagePath(plant.englishName)}
+										alt={plant.englishName}
+										width={80}
+										height={80}
+										className="object-cover w-full h-full rounded-xl transition-transform duration-300 group-hover:scale-110"
+										onLoad={() => setImageLoaded(true)}
+										onError={() => setImageFailed(true)}
+									/>
+								)}
+								{(!imageLoaded || imageFailed) && (
+									<Leaf size={28} className="text-[var(--color-maroon)] opacity-40 absolute" />
+								)}
 							</div>
 
 							<div className="flex-1 min-w-0">
