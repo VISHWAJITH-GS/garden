@@ -203,17 +203,32 @@ export default function HomePage() {
                     <CardContent className="p-5 md:p-6">
                       <div className="flex items-center gap-2 mb-3">
                         <UserRound size={18} className="text-[var(--color-maroon)] transition-transform duration-300 group-hover:scale-110" />
-                        <h3 className="heading-section text-[var(--color-text-primary)] text-lg">YRC Coordinator</h3>
+                        <h3 className="heading-section text-[var(--color-text-primary)] text-lg">YRC Coordinators</h3>
                       </div>
-                      <p className="text-sm md:text-base font-semibold text-[var(--color-text-primary)]">Dr. V. Velkannan</p>
-                      <p className="copy-muted text-sm md:text-base mt-1">Assistant Professor, Chemistry</p>
-                      <a
-                        href="tel:9840839171"
-                        className="mt-4 inline-flex items-center gap-2 rounded-lg border border-[var(--color-maroon-border)] bg-white px-3 py-2 text-sm font-medium text-[var(--color-maroon)] transition-colors hover:bg-[var(--color-maroon-light)]"
-                      >
-                        <Phone size={14} className="text-[var(--color-maroon)]" />
-                        9840839171
-                      </a>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm md:text-base font-semibold text-[var(--color-text-primary)]">Dr. V. Velkannan</p>
+                          <p className="copy-muted text-sm md:text-base mt-1">Assistant Professor, Chemistry</p>
+                          <a
+                            href="tel:9840839171"
+                            className="mt-3 inline-flex items-center gap-2 rounded-lg border border-[var(--color-maroon-border)] bg-white px-3 py-2 text-sm font-medium text-[var(--color-maroon)] transition-colors hover:bg-[var(--color-maroon-light)]"
+                          >
+                            <Phone size={14} className="text-[var(--color-maroon)]" />
+                            9840839171
+                          </a>
+                        </div>
+
+                        <div>
+                          <p className="text-sm md:text-base font-semibold text-[var(--color-text-primary)]">Dr. P. Priyadharshini</p>
+                          <a
+                            href="tel:9487648432"
+                            className="mt-3 inline-flex items-center gap-2 rounded-lg border border-[var(--color-maroon-border)] bg-white px-3 py-2 text-sm font-medium text-[var(--color-maroon)] transition-colors hover:bg-[var(--color-maroon-light)]"
+                          >
+                            <Phone size={14} className="text-[var(--color-maroon)]" />
+                            9487648432
+                          </a>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
                 </HoverLift>

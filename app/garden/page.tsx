@@ -8,6 +8,17 @@ import { FadeIn, HoverLift } from '@/components/ui/motion'
 
 export default function GardenPage() {
   const plants: Plant[] = plantsData as Plant[]
+  const sortedPlants = [...plants].sort(
+    (a, b) => a.category.localeCompare(b.category) || a.englishName.localeCompare(b.englishName)
+  )
+  const plantsByCategory = sortedPlants.reduce<Record<string, Plant[]>>((acc, plant) => {
+    if (!acc[plant.category]) {
+      acc[plant.category] = []
+    }
+    acc[plant.category].push(plant)
+    return acc
+  }, {})
+  const categoryNames = Object.keys(plantsByCategory)
   const categoriesCount = new Set(plants.map((plant) => plant.category)).size
   const staggerClasses = ['stagger-1', 'stagger-2', 'stagger-3', 'stagger-4', 'stagger-5']
 
@@ -90,13 +101,20 @@ export default function GardenPage() {
           </h2>
         </FadeIn>
 
-        <div id="plant-catalog" className="px-4 sm:px-5 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {plants.map((plant, index) => (
-            <PlantCard
-              key={plant.id}
-              plant={plant}
-              animationClass={staggerClasses[index % staggerClasses.length]}
-            />
+        <div id="plant-catalog" className="px-4 sm:px-5 md:px-10 lg:px-16 space-y-7 md:space-y-9">
+          {categoryNames.map((category, categoryIndex) => (
+            <section key={category}>
+              <h3 className="heading-section text-[var(--color-maroon)] text-lg md:text-xl">{category}</h3>
+              <div className="mt-3 md:mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                {plantsByCategory[category].map((plant, plantIndex) => (
+                  <PlantCard
+                    key={plant.id}
+                    plant={plant}
+                    animationClass={staggerClasses[(categoryIndex + plantIndex) % staggerClasses.length]}
+                  />
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </main>
