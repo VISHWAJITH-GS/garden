@@ -34,7 +34,7 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 				onToggleLang={() => setLang((current) => (current === 'en' ? 'ta' : 'en'))}
 			/>
 
-			<PageShell className="pb-12 bg-[var(--color-canvas)] md:bg-transparent">
+			<PageShell className="pb-28 md:pb-12 bg-[var(--color-canvas)] md:bg-transparent">
 				<div className="flex flex-col md:flex-row md:items-start md:gap-8 md:p-8">
 				<motion.div
 					initial={{ opacity: 0, y: 16 }}
