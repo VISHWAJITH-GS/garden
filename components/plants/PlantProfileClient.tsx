@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, Heart, Leaf, Tag } from 'lucide-react'
+import { ArrowLeft, Heart, Leaf, MapPin, Tag } from 'lucide-react'
 import { motion } from 'framer-motion'
 import type { Plant } from '@/types/plant'
 import Navbar from '@/components/layout/Navbar'
@@ -110,13 +110,33 @@ export default function PlantProfileClient({ plant }: PlantProfileClientProps) {
 								<MedicinalPill key={index} text={use} />
 							))}
 						</div>
+
+						<div className="mt-5 pt-4 border-t border-[var(--color-border)]">
+							<div className="flex items-center gap-2 mb-3">
+								<MapPin size={16} className="text-[var(--color-maroon)]" />
+								<h3 className="font-bold text-[var(--color-text-primary)] text-xs uppercase tracking-wide">
+									Planned Locations
+								</h3>
+							</div>
+							<div className="flex flex-wrap gap-2">
+								{plant.plannedLocations?.map((location) => (
+									<Badge
+										key={location}
+										variant="outline"
+										className="text-xs font-medium border-[var(--color-maroon-border)] text-[var(--color-maroon)] bg-[var(--color-maroon-light)]"
+									>
+										{location}
+									</Badge>
+								))}
+							</div>
+						</div>
 						</CardContent>
 					</Card>
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.42 }} className="mx-4 mt-4 md:mx-0 md:mt-8">
 					<Button asChild variant="outline" className="w-full border-2 border-[var(--color-maroon)] text-[var(--color-maroon)] font-semibold text-sm h-12 rounded-xl hover:bg-[var(--color-maroon-light)] hover:text-[var(--color-maroon)] dark:hover:text-[var(--color-maroon)] transition-colors">
-						<Link href="/">
+						<Link href="/garden">
 							<ArrowLeft size={16} />
 							Back to Garden
 						</Link>

@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import PlantProfileClient from '@/components/plants/PlantProfileClient'
-import BottomNav from '@/components/layout/BottomNav'
 import { getPlantById } from '@/lib/plants'
 
 interface PlantPageProps {
@@ -41,7 +40,6 @@ export default async function PlantPage({ params }: PlantPageProps) {
 	return (
 		<>
 			<PlantProfileClient plant={plant} />
-			<BottomNav />
 		</>
 	)
 }

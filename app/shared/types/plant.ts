@@ -5,4 +5,5 @@ export interface Plant {
 	botanicalName: string
 	medicinalUses: string[]
 	category: string
+	plannedLocations?: string[]
 }

@@ -2,8 +2,8 @@ import plantsData from '@/data/plants.json'
 import { Plant } from '@/types/plant'
 import Navbar from '@/components/layout/Navbar'
 import PlantCard from '@/components/plants/PlantCard'
-import { ArrowDown, Leaf, Shapes, MapPin } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
+import Link from 'next/link'
+import { ArrowDown, Leaf, Shapes, MapPin, Search } from 'lucide-react'
 import { FadeIn, HoverLift } from '@/components/ui/motion'
 
 export default function GardenPage() {
@@ -20,9 +20,6 @@ export default function GardenPage() {
           <section className="px-4 sm:px-5 md:px-10 lg:px-16 pt-7 md:pt-10 pb-4 md:pb-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-5 lg:gap-6 items-end">
               <div>
-                <Badge className="bg-[var(--color-gold)] text-white hover:bg-[var(--color-gold)] hover:opacity-90 font-bold uppercase tracking-widest px-3 py-1 mb-3">
-                  {plants.length} Plants
-                </Badge>
                 <h1 className="heading-hero text-3xl md:text-5xl text-[var(--color-maroon)]">TCE Garden</h1>
                 <p className="copy-muted text-sm md:text-lg mt-2 max-w-2xl">
                   Medicinal Plant Garden
@@ -30,13 +27,23 @@ export default function GardenPage() {
                   Thiagarajar College of Engineering, Madurai
                 </p>
 
-                <a
-                  href="#plant-catalog"
-                  className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-maroon)] px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-maroon-dark)]"
-                >
-                  Browse Plant Collection
-                  <ArrowDown size={15} />
-                </a>
+                <div className="mt-5 flex flex-col sm:flex-row items-start gap-2.5">
+                  <a
+                    href="#plant-catalog"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-maroon)] px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-maroon-dark)]"
+                  >
+                    Browse Plant Collection
+                    <ArrowDown size={15} />
+                  </a>
+
+                  <Link
+                    href="/search"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-maroon)] bg-white px-4 py-2.5 text-sm font-semibold text-[var(--color-maroon)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-maroon-light)]"
+                  >
+                    Search Plants
+                    <Search size={15} />
+                  </Link>
+                </div>
               </div>
 
               <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-maroon-light)]/35 p-4 md:p-5">
